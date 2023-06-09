@@ -1,0 +1,304 @@
+:root {
+    --fuentePrincipal: 'Nunito', sans-serif, 'Raleway', sans-serif;
+
+    --primario: #653692;
+    --primarioOscuro: #891190;
+    --secundario: #FFCE00;
+    --secundarioOscuro: #D7B80A;
+    --blanco: #FFF;
+    --negro: #000;
+}
+
+
+/*GLOBALES*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 auto;
+}
+
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+
+
+
+
+/*HEADER*/
+.header {
+    display: flex;
+    justify-content: center;  /*Propiedad de flex*/
+}
+
+.header__logo{
+    margin: 3rem 0;
+}
+
+/*FOOTER*/
+
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+
+/*NAVEGACION*/
+.navegacion {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+}
+
+@media (max-width: 400px) {
+    .navegacion {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+  /*lo que pasa aqui es lo siguiente, .navegacion__enlace esta poniendo el color de los dos enlaces en blanco, 
+   y luego navegacion_enlace--activo esta poniendo el color de las letras en amarillo pero solo cuando pasas el mouse 
+   por encima. Lo que cambia es el color para el selector "navegacion_enlace--activo" (Especificamente al
+  elemento) de manera permanente y  con la propiedad ":hover" para el selector "navegacion__enlace", es decir, sólo cuando pasas el ratón por encima.
+  Por lo que cada pagina tiene las mismas clases pero invertidas. .navegacion__enlace--activo esta ubicado de manera
+  distinta en cada html, es decir, resaltando la pagina que estamos viendo.*/
+
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+      color: var(--secundario);
+  }
+  
+
+
+
+
+/*GRID*/
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*PRODUCTOS*/
+
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__nombre {
+    font-size: 4rem;
+}
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuente);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+@media (max-width: 410px) {
+    .producto__precio,
+    .producto__nombre {
+        font-size: 100%;
+    }
+}
+
+
+
+/*GRAFICOS*/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+}
+.grafico--camisa {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+
+
+
+
+/*NOSOTROS*/
+
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.nosotros__imagen {
+    grid-row: 1 / 2;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+       grid-column: 2 / 3;
+    }
+}
+
+
+/*BLOQUE (ICONOS DE LA PAGINA NOSOTROS)*/
+
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 60%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.bloque {
+    text-align: center;
+}
+
+.bloque__titulo {
+    margin: 0;
+}
+
+
+/** Pagina del Producto **/
+@media (min-width: 1200px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+.formulario__campo {
+   border: 1rem solid var(--primarioOscuro);
+   background-color: transparent;
+   color: var(--blanco);
+   font-size: 2rem;
+   font-family: Arial, Helvetica, sans-serif;
+   padding: 1rem;
+   appearance: none;
+}
+
+.formulario__campo::placeholder {
+    color: #FFF;
+}
+
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease;
+    grid-column: 1 / 3;
+    transition: font-size .3s ease;
+}
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+    font-size: 3rem;
+}
+
+.formulario__option {
+    background-color: var(--secundario);
+    color: var(--negro);
+}
